@@ -1,2 +1,0 @@
-br_1: example.c, 12, 13
-br_2: example.c, 12, 15

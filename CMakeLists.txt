@@ -19,4 +19,5 @@ include_directories(${LLVM_INCLUDE_DIRS})
 link_directories(${LLVM_LIBRARY_DIRS})
 
 # Our pass lives in this subdirectory.
+add_subdirectory(seminalInputFeatureDetection)
 add_subdirectory(skeleton)
