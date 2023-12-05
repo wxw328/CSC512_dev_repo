@@ -165,14 +165,9 @@ struct SIFDPass : public PassInfoMixin<SIFDPass> {
                     
                             if (calledFunction -> getName() == "fopen") {
                                 // Get file descriptor
-                                fopenRetVal = callInst;
-                                
-                                
+                                fopenRetVal = callInst;                              
                             }
                             if (calledFunction -> getName() == "__isoc99_scanf") {
-                                
-                                
-                                
 
                                 // Get scanf parameter list ([2, numArgs])
                                 unsigned numArgs = callInst->getNumOperands() - 1;
@@ -201,13 +196,6 @@ struct SIFDPass : public PassInfoMixin<SIFDPass> {
                                     errs() << "branch id " << branchID << "\n";
                                     brinst->print(llvm::outs());
                                     errs() << "\n";
-
-                                    // for (unsigned int i = 0; i < brinst->getNumOperands(); i ++) {
-                                    //     Value *operand = brinst->getOperand(i);
-
-                                    //     outs() << "Operand " << i << ": " << *operand << "\n";
-
-                                    // }
                                     // Get var
                                     Value *var = brinst->getOperand(0);
                                     findInputVar(var);
