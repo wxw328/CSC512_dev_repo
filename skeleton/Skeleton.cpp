@@ -39,10 +39,12 @@ struct SkeletonPass : public PassInfoMixin<SkeletonPass> {
                             //check if instruction is conditional
                             if(brinst->isConditional()){
                                 if (DILocation *Loc = I.getDebugLoc()) { 
+                                    //errs()<<Loc->getLine()<<"\n";
                                     for (unsigned int i = 0; i < brinst->getNumSuccessors(); ++i) {
                                         BasicBlock *succ = brinst->getSuccessor(i);
                                         if (!succ->empty()){
                                             DILocation *succLoc = succ->front().getDebugLoc();
+
                                             dictFile << "br_" << branchID << ": " << Loc->getFilename().str() << ", " << Loc->getLine() << ", " << succLoc->getLine() << "\n";
                                             branchID++;
 
@@ -50,11 +52,14 @@ struct SkeletonPass : public PassInfoMixin<SkeletonPass> {
                                             Builder.SetInsertPoint(&(succ->front()));
                                             
                                             Builder.CreateCall(logBr, {ConstantInt::get(Type::getInt32Ty(Ctx), branchID)});
+                                            
+                                        }
+
                                         }                   
                                     }
                                 }                           
                             }
-                    }
+                    
 
                     if(auto *funcp = dyn_cast<CallInst>(&I)){
                         
@@ -77,6 +82,7 @@ struct SkeletonPass : public PassInfoMixin<SkeletonPass> {
 
 };
 }
+
 
 extern "C" LLVM_ATTRIBUTE_WEAK ::llvm::PassPluginLibraryInfo
 llvmGetPassPluginInfo() {
