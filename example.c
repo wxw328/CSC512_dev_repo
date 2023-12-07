@@ -11,14 +11,6 @@ int main(){
     int d = 0;
     for (int c=0; c<3; c++){
          d = d + 1;
-     }
-     
-    int x,y;
-    scanf("%d %d",&x,&y);
-    if(x <d ){
-        if(y<d){
-           d = x+y; 
-        }
     }
 
     return d;
