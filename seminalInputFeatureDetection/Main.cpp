@@ -424,9 +424,9 @@ struct SIFDPass : public PassInfoMixin<SIFDPass> {
                             if(brinst->isConditional()){
 
                                 if (DILocation *Loc = I.getDebugLoc()) { 
-                                    errs() << "branch id " << branchID << "\n";
-                                    brinst->print(llvm::errs());
-                                    errs() << "\n";
+                                    //errs() << "branch id " << branchID << "\n";
+                                    //brinst->print(llvm::errs());
+                                    //errs() << "\n";
                                     // Get var
                                     Value *var = brinst->getOperand(0);
                                     findInputVar(var);
@@ -438,7 +438,7 @@ struct SIFDPass : public PassInfoMixin<SIFDPass> {
                                         if (!succ->empty()){
 
                                             DILocation *succLoc = succ->front().getDebugLoc();
-                                            errs() << "br_" << branchID << ": " << Loc->getFilename().str() << ", " << Loc->getLine() << ", " << succLoc->getLine() << "\n";
+                                            //errs() << "br_" << branchID << ": " << Loc->getFilename().str() << ", " << Loc->getLine() << ", " << succLoc->getLine() << "\n";
                                             dictFile << "br_" << branchID << ": " << Loc->getFilename().str() << ", " << Loc->getLine() << ", " << succLoc->getLine() << "\n";
                                            
 
@@ -457,7 +457,7 @@ struct SIFDPass : public PassInfoMixin<SIFDPass> {
                         
                         if(!funcp->getCalledFunction()){
                             findInputVar(funcp);
-                            errs()<<*funcp<<"\n";
+                            //errs()<<*funcp<<"\n";
                             IRBuilder<> Builder(funcp);
 
                             Value *callpointer = funcp->getCalledOperand();
