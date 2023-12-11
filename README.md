@@ -6,7 +6,7 @@ To compile example3, following these commands:
 ```
 clang -fno-discard-value-names -fpass-plugin=build/seminalInputFeatureDetection/SIFDPass.so -g -c example3.c
 clang -c logfunction.c
-clang -o example logfunction.o example.o -lm
+clang -o example3 logfunction.o example3.o -lm
 ```
 
 To run example3, you can use commands like:
