@@ -15,8 +15,8 @@ int main(){
      
     int x,y;
     scanf("%d %d",&x,&y);
-    if(x <d ){
-        if(y<d){
+    if(y <d ){
+        if(x<d){
            d = x+y; 
         }
     }
