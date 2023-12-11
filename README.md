@@ -37,9 +37,9 @@ clang -o example logfunction.o example.o
 To compile example3, following these commands:
 
 ```
-clang -fpass-plugin=build/skeleton/SkeletonPass.so -g -c example.c
+clang -fpass-plugin=build/skeleton/SkeletonPass.so -g -c example3.c
 clang -c logfunction.c
-clang -o example logfunction.o example.o
+clang -o example3 logfunction.o example3.o -lm
 ```
 
 To run example3, you can use commands like:
