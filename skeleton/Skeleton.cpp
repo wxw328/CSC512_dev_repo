@@ -46,12 +46,12 @@ struct SkeletonPass : public PassInfoMixin<SkeletonPass> {
                                             DILocation *succLoc = succ->front().getDebugLoc();
 
                                             dictFile << "br_" << branchID << ": " << Loc->getFilename().str() << ", " << Loc->getLine() << ", " << succLoc->getLine() << "\n";
-                                            branchID++;
 
                                             IRBuilder<> Builder(Ctx);
                                             Builder.SetInsertPoint(&(succ->front()));
                                             
                                             Builder.CreateCall(logBr, {ConstantInt::get(Type::getInt32Ty(Ctx), branchID)});
+                                            branchID++;
                                             
                                         }
 
