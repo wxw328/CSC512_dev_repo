@@ -32,7 +32,7 @@ clang -o example logfunction.o example.o
 ./example
 ```
 
-##### 
+
 
 To compile example3, following these commands:
 
@@ -50,3 +50,12 @@ To run example3, you can use commands like:
 For the discription of input content, read this link:
 
 [https://www.spec.org/cpu2017/Docs/benchmarks/519.lbm_r.html]()
+
+
+
+If you need to use valgrind to count instructions, using the command like:
+
+```
+./run_callgrind.sh ./example3 3 reference.dat 0 0
+```
+
